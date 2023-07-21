@@ -1,0 +1,163 @@
+/* Seletor universal */
+*{
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/*Seletor de texto */
+h1{
+	color: rgb(3, 56, 3);
+	background-color: gray;
+	text-align: center;
+}
+
+/*Seletor de classe */
+
+.verde{
+	color: rgb(5, 49, 5);
+}
+
+
+/*formatação de classe para determinado elemento*/
+p.verde{
+	color: rgb(2, 34, 2);
+}
+
+/*Seletor de id*/
+#cabecalho{
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	background-color: gray;
+	text-align: center;
+}
+
+/*Seletor de filho*/
+li>a{
+	color: rgb(31, 30, 30);
+	text-decoration: none;
+}
+
+div>span{
+	background-color: aqua;
+	border: 1px solid gray;
+}
+
+/*Seletor descendente*/
+p a {
+	color: rgb(3, 56, 3);
+}
+
+/*Seletor de irmão descendente*/
+h1+p {
+	color: rebeccapurple;
+}
+
+/*Barra de navegação vertical*/
+
+
+.listLinks{
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.listLinks a{
+	width: 200px;
+	height: 40px;
+	display: block;
+	color: #000;
+	text-decoration: none;
+	text-indent: 40px;
+	line-height: 40px;
+	background: #f7b600 url(../imagens/menu.png) no-repeat left bottom;
+}
+
+.listLinks a:hover{
+	background-position: right bottom;
+	background-color: #f99200;
+	color: #fff;
+}
+
+.conteudo-fixo {
+	position: fixed;
+}
+
+.conteudo-centralizado {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+}
+
+#parallax {
+	position: fixed;
+	top: 20%;
+	right: 0;
+	width: 82%;
+	margin: 0;
+	font: 16px "Lato", sans-serif;
+	color: #777;
+	height: 600px;
+	overflow-y: scroll;
+}
+
+.conteudo {
+	color: #777;
+	background-color: white;
+	text-align: justify;
+	padding: 50px 80px;
+}
+
+h3 {
+	text-transform: uppercase;
+	color: #111;
+	text-align: center;
+}
+
+/*Efeito Parallax*/
+
+.caixa1, .caixa2, .caixa3, .caixa4 {
+	position: relative;
+	height: 100%;
+	opacity: 0.7;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+}
+
+.caixa1 {
+	background-image: url(../imagens/imagem1.jpg);
+}
+
+.caixa2 {
+	background-image: url(../imagens/imagem2.jpg);
+}
+
+.caixa3 {
+	background-image: url(../imagens/imagem3.jpg);
+}
+
+.caixa4 {
+	background-image: url(../imagens/imagem4.jpg);
+}
+
+.texto1 {
+	margin-bottom: 20px;
+}
+
+.conteudo-titulo {
+	position: absolute;
+	left: 0;
+	top: 40%;
+	width: 100%;
+	text-align: center;	
+}
+
+.conteudo-titulo span.titulo {
+	background-color: #111;
+	padding: 18px;
+	font-size: 25px;
+	letter-spacing: 5px;
+	color: white;
+}
