@@ -5,27 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/interfaces.css">
     <title>LOGIN</title>
+    <style>
+        .error-message {
+            color: red;
+        }
+        .success-message {
+            color: green;
+        }
+    </style>
 </head>
 <body>
     <div id="container">
-        <img src="imagens/perfil.png" alt="perfil"> 
+        <img src="imagens/perfil.png" alt="perfil">
         
         <form>
             <h3>Insira o seu login</h3>
-            <input class="usuario" type="text" id="username" name="username" placeholder="Digite seu e-mail">
-            <input class="senha" type="password" id="password" name="password" placeholder="Digite sua senha">
+            <label for="username">E-mail:</label>
+            <input class="usuario" type="text" id="username" name="username" placeholder="Digite seu e-mail" required>
+            
+            <label for="password">Senha:</label>
+            <input class="senha" type="password" id="password" name="password" placeholder="Digite sua senha" required>
+            
             <input class="submit" type="submit" value="Entrar">
-    
-            <p id="feedback-message"></p>
-            <p id="access-message" style="color: black;"></p>
+            
+            <p id="feedback-message" class="error-message"></p>
         </form>
-    
         
         <script>
             const form = document.querySelector('form');
             const feedbackMessage = document.querySelector('#feedback-message');
-            const accessMessage = document.querySelector('#access-message');
-            const tempoExibicao = 3000;
 
             form.addEventListener('submit', function(event) {
                 event.preventDefault();
@@ -33,23 +41,28 @@
                 const usernameValue = username.value;
                 const passwordValue = password.value;
 
-                // Verifica se o login está correto
                 if (usernameValue === 'admin' && passwordValue === 'admin') {
-                    // Redirecionar para a página "index.html"
+                    feedbackMessage.textContent = 'Login bem-sucedido!';
+                    feedbackMessage.className = 'success-message';
                     window.location.href = 'index.html';
                 } else if (usernameValue === 'admin' && passwordValue !== 'admin') {
-                    feedbackMessage.textContent = 'Usuário ou Senha incorreto!';
-                    setTimeout(function() { feedbackMessage.textContent = '';}, tempoExibicao);
+                    showErrorFeedback('Senha incorreta.');
                 } else if (usernameValue === '' || passwordValue === '') {
-                    feedbackMessage.textContent = 'Digite usuário e senha';
-                    setTimeout(function() { feedbackMessage.textContent = '';}, tempoExibicao);
+                    showErrorFeedback('Digite usuário e senha.');
                 } else {
-                    feedbackMessage.textContent = 'Usuário não encontrado.';
-                    setTimeout(function() { feedbackMessage.textContent = '';}, tempoExibicao);
+                    showErrorFeedback('Credenciais inválidas.');
                 }
             });
-                       
+
+            function showErrorFeedback(message) {
+                feedbackMessage.textContent = message;
+                feedbackMessage.className = 'error-message';
+                setTimeout(function() {
+                    feedbackMessage.textContent = '';
+                }, 3000);
+            }
         </script>
-    </div>        
+    </div>
 </body>
 </html>
+
